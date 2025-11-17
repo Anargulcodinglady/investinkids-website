@@ -289,16 +289,19 @@ footer{background:#065f46;color:#fff;text-align:center;padding:25px 10px;}
 </div>
 </section>
 
-    <section id="form" class="reveal">
-<h2>Оставить заявку 📝</h2>
-<form id="contactForm">
-<label>Имя</label><input type="text" name="entry.2005620554" required>
-<label>Телефон</label><input type="tel" name="entry.1045781291" required>
-<label>Комментарий</label><textarea name="entry.839337160"></textarea>
-<button type="submit">Отправить</button>
-<p id="msg" class="success"></p>
+   <form id="contactForm">
+  <label>Имя</label>
+  <input type="text" name="entry.1357686441" required>
+
+  <label>Телефон</label>
+  <input type="tel" name="entry.580979079" required>
+
+  <label>Комментарий</label>
+  <textarea name="entry.1275669067"></textarea>
+
+  <button type="submit">Отправить</button>
+  <p id="msg" class="success"></p>
 </form>
-</section>
 
 <footer><p>© 2025 Invest in Kids | Все права защищены</p></footer>
 <a href="https://wa.me/77478980843" target="_blank" class="whatsapp-btn"><img src="img/whatsapp.jpg" alt="WhatsApp" class="icon"> Онлайн менеджер</a>
@@ -341,6 +344,26 @@ function revealOnScroll(){
 }
 window.addEventListener('scroll',revealOnScroll);
 revealOnScroll();
+</script>
+
+  <script>
+document.getElementById("contactForm").addEventListener("submit", e => {
+    e.preventDefault();
+    const form = e.target;
+
+    fetch("https://docs.google.com/forms/d/e/1FAIpQLSeVHDyMTusSTqbk4p39v0jyt_r0PlKWeW9p_t8A/formResponse", {
+        method: "POST",
+        mode: "no-cors",
+        body: new FormData(form)
+    })
+    .then(() => {
+        document.getElementById("msg").innerText = "✅ Ваша заявка отправлена!";
+        form.reset();
+    })
+    .catch(() => {
+        document.getElementById("msg").innerText = "❌ Ошибка, попробуйте снова.";
+    });
+});
 </script>
 </body>
 </html>
