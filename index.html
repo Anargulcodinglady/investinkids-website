@@ -28,120 +28,128 @@ nav a:hover{color:#16a34a;}
 .promo-box{background:rgba(0,128,0,0.2);border:2px solid #16a34a;padding:30px;border-radius:15px;text-align:center;box-shadow:0 0 15px rgba(22,163,74,0.4);}
 .promo-price{font-size:2rem;color:#e63946;font-weight:700;}
 
+/* NEW REVEAL ANIMATIONS */
+.reveal{opacity:0;transform:translateY(40px);transition:all .9s ease;}
+.reveal.active{opacity:1;transform:translateY(0);}
+
 section{padding:100px 0;}
 h2{text-align:center;color:#065f46;margin-bottom:40px;font-size:2rem;animation:fadeInUp 1s ease both;}
 
-/* fade / slide animations */
 @keyframes fadeInUp{from{opacity:0;transform:translateY(40px);}to{opacity:1;transform:translateY(0);}}
-@keyframes fadeInLeft{from{opacity:0;transform:translateX(-40px);}to{opacity:1;transform:translateX(0);}}
-@keyframes fadeInRight{from{opacity:0;transform:translateX(40px);}to{opacity:1;transform:translateX(0);}}
-@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
 
-/* About */
+/* ABOUT */
 .about{display:flex;flex-wrap:wrap;align-items:center;gap:40px;width:90%;max-width:1200px;margin:auto;}
-.about img{width:100%;max-width:500px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.1);animation:fadeInLeft 1.2s ease both;}
-.about-text{flex:1;font-size:1.1rem;line-height:1.6;animation:fadeInRight 1.2s ease both;}
+.about img{width:100%;max-width:500px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.1);}
+.about img:hover{transform:scale(1.015);transition:.4s;}
+.about-text{flex:1;font-size:1.1rem;line-height:1.6;}
 
-/* Courses */
+/* BENEFITS */
+#benefits .benefits-container{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;width:90%;max-width:1200px;margin:auto;
+}
+.benefit{background:#fff;border-radius:15px;padding:25px;text-align:center;
+    box-shadow:0 4px 12px rgba(0,0,0,0.08);transition:0.3s;}
+.benefit:hover{transform:translateY(-6px);box-shadow:0 8px 20px rgba(0,0,0,0.15);}
+.benefit .icon{font-size:2.2rem;display:block;margin-bottom:10px;}
+
+/* TEACHERS */
+#teachers .teachers-container{
+    width:90%;max-width:1000px;margin:auto;
+    display:flex;justify-content:center;gap:30px;flex-wrap:wrap;
+}
+.teacher{background:#fff;padding:20px;border-radius:15px;width:260px;text-align:center;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);transition:.3s;}
+.teacher:hover{transform:translateY(-6px);box-shadow:0 8px 20px rgba(0,0,0,0.2);}
+.teacher img{width:100%;border-radius:12px;margin-bottom:12px;}
+
+/* COURSES */
 .courses{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:30px;width:90%;max-width:1200px;margin:auto;}
-.course{background:#fff;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,.08);padding:30px;text-align:center;transition:.3s;animation:fadeInUp 1s ease both;}
+.course{background:#fff;border-radius:10px;box-shadow:0 4px 12px rgba(0,0,0,.08);padding:30px;text-align:center;transition:.3s;}
 .course:hover{transform:translateY(-5px);}
 .course h3{color:#065f46;margin-bottom:10px;}
 
-/* Price cards */
+/* PRICING */
 .cards{display:flex;justify-content:center;flex-wrap:wrap;gap:25px;max-width:1200px;margin:40px auto;}
-.card{width:260px;background:#fff;border-radius:12px;box-shadow:0 4px 15px rgba(0,0,0,0.08);padding:20px;text-align:center;transition:transform 0.3s;animation:fadeInUp 1s ease both;}
+.card{width:260px;background:#fff;border-radius:12px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);padding:20px;text-align:center;transition:transform 0.3s;}
 .card:hover{transform:translateY(-6px);}
 .price{font-size:1.6rem;font-weight:800;color:#16a34a;}
-.old-price{text-decoration:line-through;color:#999;font-size:.9rem;}
-.discount{background:#e63946;color:#fff;font-weight:700;border-radius:8px;padding:5px 12px;font-size:.9rem;display:inline-block;margin-top:10px;}
-.card button{background:linear-gradient(90deg,#16a34a,#0d8048);color:#fff;border:none;padding:12px 25px;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;transition:.3s;}
-.card button:hover{transform:scale(1.05);}
 
-/* Photos */
+.card button{background:linear-gradient(90deg,#16a34a,#0d8048);color:#fff;border:none;
+    padding:12px 25px;border-radius:8px;font-size:1rem;font-weight:600;cursor:pointer;}
+.card button:hover{transform:scale(1.05);box-shadow:0 0 12px rgba(22,163,74,0.45);}
+
+/* ACHIEVEMENTS */
+#achievements .achievements-container{
+    display:flex;justify-content:center;gap:25px;flex-wrap:wrap;
+    width:90%;max-width:1000px;margin:auto;
+}
+.achievement{width:260px;text-align:center;}
+.achievement img{width:100%;border-radius:15px;box-shadow:0 4px 12px rgba(0,0,0,0.1);margin-bottom:10px;}
+
+/* REVIEWS SLIDER */
+.review-slider{display:flex;overflow-x:auto;gap:20px;scroll-snap-type:x mandatory;padding:10px 20px;}
+.review-card{min-width:280px;background:white;padding:20px;border-radius:15px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);scroll-snap-align:center;}
+.review-slider::-webkit-scrollbar{display:none;}
+
+/* FAQ */
+#faq{width:90%;max-width:800px;margin:auto;}
+.faq-item{margin-bottom:15px;}
+.faq-q{width:100%;padding:15px;border:none;background:#e8f7ee;font-size:1.1rem;
+    font-weight:600;color:#065f46;border-radius:10px;cursor:pointer;}
+.faq-a{max-height:0;overflow:hidden;transition:.4s;background:white;
+    padding:0 15px;border-radius:0 0 10px 10px;}
+.faq-item.active .faq-a{max-height:200px;padding:15px;}
+
+/* PHOTOS */
 #invest-photos{text-align:center;margin:40px 0;}
-#invest-photos .slider img{width:80%;max-width:600px;display:none;margin:0 auto;transition:opacity 1s ease-in-out;border-radius:15px;box-shadow:0 4px 10px rgba(0,0,0,.2);animation:fadeIn 1.5s ease both;}
+#invest-photos .slider img{width:80%;max-width:600px;display:none;margin:0 auto;
+    transition:opacity 1s ease-in-out;border-radius:15px;box-shadow:0 4px 10px rgba(0,0,0,.2);}
 #invest-photos .slider img.active{display:block;}
 
-/* Reviews */
-.review{display:flex;justify-content:center;gap:30px;flex-wrap:wrap;align-items:flex-start;}
-.review img{width:280px;border-radius:10px;object-fit:cover;box-shadow:0 4px 10px rgba(0,0,0,.2);animation:fadeInUp 1.5s ease both;}
-
-/* Contacts */
-.contacts .info{display:flex;justify-content:center;gap:50px;flex-wrap:wrap;}
-.contact-box{flex:1;min-width:300px;background:#fff;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.1);padding:25px;animation:fadeInUp 1.2s ease both;}
-.contact-box a{color:#16a34a;text-decoration:none;font-weight:600;}
-.contact-box a:hover{color:#0c7a3b;}
-
-form{background:#fff;max-width:600px;margin:40px auto;padding:40px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.1);animation:fadeInUp 1.2s ease both;}
+/* CONTACT FORM */
+form{background:#fff;max-width:600px;margin:40px auto;padding:40px;
+    border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,.1);}
 form label{display:block;font-weight:600;color:#065f46;margin-bottom:6px;}
-form input,form textarea{width:100%;padding:12px;margin-bottom:20px;border:1px solid #ccc;border-radius:8px;font-size:1rem;}
+form input,form textarea,form select{
+    width:100%;padding:12px;margin-bottom:20px;border:1px solid #ccc;border-radius:8px;font-size:1rem;
+}
 form button{background:#16a34a;color:#fff;border:none;padding:12px 30px;border-radius:6px;font-size:1rem;font-weight:600;cursor:pointer;}
 form button:hover{background:#065f46;}
 .success{text-align:center;margin-top:10px;color:#16a34a;font-weight:600;}
 
-.whatsapp-btn{position:fixed;bottom:25px;right:25px;display:flex;align-items:center;background:#25D366;color:white;padding:10px 16px;border-radius:30px;text-decoration:none;font-weight:bold;font-size:15px;box-shadow:0 4px 10px rgba(0,0,0,0.2);z-index:2000;transition:.3s;}
-.whatsapp-btn:hover{background:#1DA851;transform:translateY(-3px);}
-.whatsapp-btn .icon{width:22px;height:22px;margin-right:8px;}
 footer{background:#065f46;color:#fff;text-align:center;padding:25px 10px;}
-  
-    /* ====== SCROLL ANIMATION ====== */
-.reveal{
-    opacity:0;
-    transform:translateY(40px);
-    transition:all .9s ease;
+.whatsapp-btn{
+    position:fixed;bottom:25px;right:25px;display:flex;align-items:center;
+    background:#25D366;color:white;padding:10px 16px;border-radius:30px;text-decoration:none;
+    font-weight:bold;font-size:15px;box-shadow:0 4px 10px rgba(0,0,0,0.2);
 }
-.reveal.active{
-    opacity:1;
-    transform:translateY(0);
-}
-
-/* ====== HOVER улучшение ====== */
-.cta-btn:hover,
-.card button:hover{
-    box-shadow:0 0 12px rgba(22,163,74,0.45);
-}
-
-/* ====== IMAGE SOFT ZOOM ====== */
-.about img:hover,
-#invest-photos .slider img:hover{
-    transform:scale(1.015);
-    transition:.4s;
-}
-
-/* ====== MOBILE IMPROVEMENTS ====== */
-@media(max-width:850px){
-    nav ul{display:none;}
-    nav{padding:12px 5%;}
-    .hero-left h1{font-size:2.3rem;}
-    .hero-left p{font-size:1rem;}
-    .card{width:90%;margin:auto;}
-}
-@media(max-width:600px){
-    .hero-content{
-        flex-direction:column;
-        text-align:center;
-    }
-    #home{height:auto;padding:120px 0 60px;}
-}
+.whatsapp-btn:hover{background:#1DA851;transform:translateY(-3px);}
 </style>
 </head>
 
 <body>
+
 <header>
 <nav>
 <a href="#home"><strong>Invest in Kids</strong></a>
 <ul>
 <li><a href="#home">Главная</a></li>
 <li><a href="#about">О нас</a></li>
+<li><a href="#benefits">Преимущества</a></li>
+<li><a href="#teachers">Преподаватели</a></li>
 <li><a href="#courses">Курсы</a></li>
-<li><a href="#invest-photos">Invest in kids в фотографиях</a></li>
+<li><a href="#pricing">Стоимость</a></li>
 <li><a href="#contact">Контакты</a></li>
 </ul>
 <a href="#contact" class="cta-btn">Записаться</a>
 </nav>
 </header>
 
+
+<!-- HERO -->
 <section id="home">
 <div class="hero-content">
 <div class="hero-left">
@@ -149,6 +157,7 @@ footer{background:#065f46;color:#fff;text-align:center;padding:25px 10px;}
 <p>Английский, программирование и технологии — легко, интересно и с любовью 💚</p>
 <a href="#courses" class="cta-btn">Посмотреть курсы</a>
 </div>
+
 <div class="hero-right">
 <div class="promo-box">
 <h3 style="color:white;">Попробуй первый урок бесплатно 🎁</h3>
@@ -161,150 +170,280 @@ footer{background:#065f46;color:#fff;text-align:center;padding:25px 10px;}
 </div>
 </section>
 
-<section id="about">
-    <section id="about" class="reveal">
+
+<!-- ABOUT -->
+<section id="about" class="reveal">
 <div class="about">
 <img src="img/classroom.jpg" alt="Invest in Kids">
 <div class="about-text">
 <h2>Invest in Kids — школа будущего 💡</h2>
-<p><strong>Invest in Kids</strong> — это место, где дети учатся мечтать, мыслить и действовать как настоящие инноваторы! Мы объединяем английский, программирование и искусственный интеллект, чтобы каждый ребёнок мог раскрыть свой потенциал и поверить в себя 🌍</p>
-<p>Наши ученики создают проекты, общаются с носителями языка и получают реальные навыки для успеха в будущем.</p>
+<p><strong>Invest in Kids</strong> — это место, где дети учатся мечтать, мыслить и действовать как настоящие инноваторы! Мы объединяем английский, программирование и искусственный интеллект, чтобы каждый ребёнок мог раскрыть свой потенциал 🌍</p>
+<p>Наши ученики создают проекты, общаются с носителями языка и получают реальные навыки для будущего.</p>
 </div>
 </div>
 </section>
 
-    <section id="courses" class="reveal">
+
+<!-- BENEFITS -->
+<section id="benefits" class="reveal">
+<h2>Почему выбирают Invest in Kids ⭐</h2>
+<div class="benefits-container">
+<div class="benefit"><span class="icon">🧠</span><h3>Уникальная методика</h3><p>Комбинация английского, технологий и проектов.</p></div>
+<div class="benefit"><span class="icon">🤖</span><h3>Современные технологии</h3><p>AI, Python, робототехника, NoCode.</p></div>
+<div class="benefit"><span class="icon">🎓</span><h3>Опытные преподаватели</h3><p>Сертифицированные и квалифицированные учителя.</p></div>
+<div class="benefit"><span class="icon">💬</span><h3>Разговорная практика</h3><p>Speaking-клубы, живое общение.</p></div>
+<div class="benefit"><span class="icon">📈</span><h3>Сильный прогресс</h3><p>Контроль, тесты, отчёты родителям.</p></div>
+<div class="benefit"><span class="icon">🌍</span><h3>Гибкость</h3><p>Онлайн и офлайн форматы.</p></div>
+</div>
+</section>
+
+
+<!-- TEACHERS -->
+<section id="teachers" class="reveal">
+<h2>Наши преподаватели 👩‍🏫</h2>
+<div class="teachers-container">
+
+<div class="teacher">
+  <img src="https://via.placeholder.com/400x500" alt="">
+  <h3>Айгуль</h3>
+  <p>English Teacher • IELTS 7.5 • 5 лет опыта</p>
+</div>
+
+<div class="teacher">
+  <img src="https://via.placeholder.com/400x500" alt="">
+  <h3>Тимур</h3>
+  <p>Python / Robotics • Arduino • EV3</p>
+</div>
+
+<div class="teacher">
+  <img src="https://via.placeholder.com/400x500" alt="">
+  <h3>Жанар</h3>
+  <p>IELTS / Academic Writing</p>
+</div>
+
+</div>
+</section>
+
+
+<!-- COURSES -->
+<section id="courses" class="reveal">
 <h2>Наши курсы 🌟</h2>
 <div class="courses">
 
 <div class="course">
-<h3>🎯 Английский язык для детей и взрослых</h3>
-<p>Интерактивные занятия, разговорная практика, грамматика, игры, speaking-клубы. Подходит для всех уровней.</p>
+<h3>🎯 Английский язык</h3>
+<p>Интерактивные занятия, speaking, грамматика, игры, клубы. Для детей и взрослых.</p>
 </div>
 
 <div class="course">
-<h3>📘 Подготовка к IELTS / SAT</h3>
-<p>Полная подготовка к экзаменам: Writing, Reading, Listening, Speaking. SAT Math — глубокий разбор задач.</p>
+<h3>📘 IELTS / SAT</h3>
+<p>Глубокая подготовка: Writing, Reading, Listening, Speaking, SAT Math.</p>
 </div>
 
 <div class="course">
 <h3>🤖 Программирование</h3>
-<p>Python, логика, создание игр, алгоритмы, AI-технологии, чат-боты, автоматизации, сайты без кода, создание цифровых продуктов.</p>
+<p>Python, игры, алгоритмы, Arduino, робототехника, проекты.</p>
 </div>
-  
+
+<div class="course">
+<h3>🧠 AI и NoCode</h3>
+<p>Чат-боты, автоматизации, сайты, цифровые продукты.</p>
+</div>
+
 </div>
 </section>
 
 
-    <section id="pricing" class="reveal">
+<!-- PRICING -->
+<section id="pricing" class="reveal">
 <h2>Стоимость обучения 💰</h2>
-<p style="text-align:center;color:#444;">Выберите комфортный формат обучения для детей и взрослых</p>
+<p style="text-align:center;color:#444;">Выберите комфортный формат обучения</p>
 
 <div class="cards">
-  <div class="card">
-    <h3>👩‍🏫 Групповые занятия</h3>
-    <p class="price">Взрослым — 50 000 ₸</p>
-    <p class="price">Детям — 40 000 ₸</p>
-    <ul>
-      <li>5 раз в неделю</li>
-      <li>Разговорная практика</li>
-      <li>Грамматика + словарный запас</li>
-    </ul>
-    <button>Записаться</button>
-  </div>
 
-  <div class="card">
-    <h3>🎓 Индивидуальные занятия</h3>
-    <p class="price">100 000 – 150 000 ₸</p>
-    <ul>
-      <li>Полная индивидуальная программа</li>
-      <li>3 раза в неделю</li>
-      <li>Выбор удобного графика</li>
-    </ul>
-    <button>Записаться</button>
-  </div>
+<div class="card">
+<h3>👩‍🏫 Групповые занятия</h3>
+<p class="price">Взрослым — 50 000 ₸</p>
+<p class="price">Детям — 40 000 ₸</p>
+<ul>
+<li>5 раз в неделю</li>
+<li>Speaking + Grammar</li>
+</ul>
+<button>Записаться</button>
+</div>
 
-  <div class="card">
-    <h3>📘 IELTS / SAT</h3>
-    <p class="price">IELTS — 70 000 ₸ в месяц</p>
-    <p>Полный курс: 4 месяца = 280 000 ₸</p>
-    <p class="price">SAT Math — 60 000 ₸</p>
-    <ul>
-      <li>IELTS — занятия 5 раз в неделю</li>
-      <li>SAT — занятия 3 раза в неделю</li>
-    </ul>
-    <button>Записаться</button>
-  </div>
+<div class="card">
+<h3>🎓 Индивидуальные занятия</h3>
+<p class="price">100 000 – 150 000 ₸</p>
+<ul>
+<li>Персональная программа</li>
+<li>3 раза в неделю</li>
+</ul>
+<button>Записаться</button>
+</div>
 
-  <div class="card">
-    <h3>💻 Программирование</h3>
-    <p class="price">36 000 ₸</p>
-    <ul>
-      <li>3 раза в неделю</li>
-      <li>Python + AI Tools</li>
-      <li>Практические проекты</li>
-    </ul>
-    <button>Записаться</button>
-  </div>
+<div class="card">
+<h3>📘 IELTS / SAT</h3>
+<p class="price">IELTS — 70 000 ₸</p>
+<p>Полный курс: 4 мес = 280 000 ₸</p>
+<p class="price">SAT Math — 60 000 ₸</p>
+<ul>
+<li>IELTS — 5 раз/нед</li>
+<li>SAT — 3 раза/нед</li>
+</ul>
+<button>Записаться</button>
+</div>
+
+<div class="card">
+<h3>💻 Программирование</h3>
+<p class="price">36 000 ₸</p>
+<ul>
+<li>3 раза в неделю</li>
+<li>Python + AI Tools</li>
+</ul>
+<button>Записаться</button>
+</div>
 
 </div>
 
 <p style="text-align:center;margin-top:30px;color:#065f46;font-weight:600;">
-🎉 Для студентов и учеников СҮСН скидки до 40%!
+🎉 Скидки до 40% для студентов и СҮСН!
 </p>
 </section>
 
 
-    <section id="invest-photos" class="reveal">
+<!-- ACHIEVEMENTS -->
+<section id="achievements" class="reveal">
+<h2>Наши достижения 🏆</h2>
+<div class="achievements-container">
+
+<div class="achievement">
+  <img src="https://via.placeholder.com/400x300" alt="">
+  <p>Победы учеников на олимпиадах</p>
+</div>
+
+<div class="achievement">
+  <img src="https://via.placeholder.com/400x300" alt="">
+  <p>Сертификаты преподавателей</p>
+</div>
+
+<div class="achievement">
+  <img src="https://via.placeholder.com/400x300" alt="">
+  <p>Участие в международных конкурсах</p>
+</div>
+
+</div>
+</section>
+
+
+<!-- REVIEWS SLIDER -->
+<section id="reviews-slider" class="reveal">
+<h2>Отзывы наших учеников 💬</h2>
+<div class="review-slider">
+  <div class="review-card">«Очень нравится английский! Ребёнок стал уверенно говорить.» — Алина</div>
+  <div class="review-card">«Крутой курс по программированию! Сделали свою игру.» — Ернар</div>
+  <div class="review-card">«IELTS подняли с 5.5 до 6.5 всего за 3 месяца!» — Данил</div>
+</div>
+</section>
+
+
+<!-- FAQ -->
+<section id="faq" class="reveal">
+<h2>Часто задаваемые вопросы ❓</h2>
+
+<div class="faq-item">
+  <button class="faq-q">С какого возраста можно обучаться?</button>
+  <div class="faq-a">Мы обучаем детей от 6 лет и взрослых без ограничений.</div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-q">Можно ли обучаться онлайн?</button>
+  <div class="faq-a">Да, у нас есть онлайн и офлайн группы.</div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-q">Сколько длится урок?</button>
+  <div class="faq-a">60–90 минут, в зависимости от курса.</div>
+</div>
+
+<div class="faq-item">
+  <button class="faq-q">Нужен ли ноутбук?</button>
+  <div class="faq-a">Для программирования желательно иметь ноутбук, но можно заниматься и со школьным компьютером.</div>
+</div>
+
+</section>
+
+
+<!-- PHOTOS -->
+<section id="invest-photos" class="reveal">
 <h2>Invest in Kids в фотографиях 📸</h2>
-<p style="text-align:center;color:#555;">Мы учим, играем, создаём и вдохновляем — вот как проходит обучение в нашем центре!</p>
+<p style="text-align:center;color:#555;">Живые моменты занятий, игр и проектов</p>
 <div class="slider">
 <img src="img/photo1.jpg" class="active" alt="Фото 1">
 <img src="img/photo2.jpg" alt="Фото 2">
 <img src="img/photo3.jpg" alt="Фото 3">
 <img src="img/photo4.jpg" alt="Фото 4">
-<img src="img/photo5.jpg" alt="Фото 5">
-  <img src="img/photo6.jpg" alt="Фото 6">
-  <img src="img/photo7.jpg" alt="Фото 7">
 </div>
 </section>
 
-    <section id="reviews" class="reveal">
-<h2>Отзывы о нас 💬</h2>
-<div class="review">
-<img src="img/review1.jpg" alt="Отзыв 1">
-<img src="img/review2.jpg" alt="Отзыв 2">
-<img src="img/review3.jpg" alt="Отзыв 3">
-<img src="img/review4.jpg" alt="Отзыв 4">
-  <img src="img/review5.jpg" alt="Отзыв 5">
-</div>
-</section>
 
-    <section id="contact" class="reveal">
+<!-- CONTACTS -->
+<section id="contact" class="reveal">
 <h2>Контакты</h2>
-<p style="text-align:center;color:#444;">Мы всегда на связи 💬 Напишите нам — поможем выбрать программу и расскажем обо всех возможностях обучения!</p>
+<p style="text-align:center;color:#444;">Мы всегда на связи 💬 Напишите нам — поможем выбрать программу!</p>
 <div class="contacts info">
-<div class="contact-box"><h3>📍 Офис</h3><p>Астана, Сыганак 4</p><a href="https://2gis.kz/astana/geo/70000001087013430" target="_blank">📍 Посмотреть на карте 2GIS</a></div>
-<div class="contact-box"><h3>📞 Связаться</h3><p><a href="https://wa.me/77081486845" target="_blank">+7 708 148 6845</a></p><p><a href="mailto:aessenaliyeva@gmail.com">aessenaliyeva@gmail.com</a></p><p><a href="https://www.instagram.com/investinkidskz" target="_blank">@investinkidskz</a></p></div>
+<div class="contact-box"><h3>📍 Офис</h3><p>Астана, Сыганак 4</p><a href="https://2gis.kz/astana/geo/70000001087013430" target="_blank">📍 На карте 2GIS</a></div>
+<div class="contact-box"><h3>📞 Связаться</h3>
+<p><a href="https://wa.me/77081486845" target="_blank">+7 708 148 6845</a></p>
+<p><a href="mailto:aessenaliyeva@gmail.com">aessenaliyeva@gmail.com</a></p>
+<p><a href="https://www.instagram.com/investinkidskz" target="_blank">@investinkidskz</a></p>
+</div>
 </div>
 </section>
 
-    <section id="form" class="reveal">
+
+<!-- IMPROVED FORM -->
+<section id="form" class="reveal">
 <h2>Оставить заявку 📝</h2>
+
 <form id="contactForm">
-<label>Имя</label><input type="text" name="entry.2005620554" required>
-<label>Телефон</label><input type="tel" name="entry.1045781291" required>
-<label>Комментарий</label><textarea name="entry.839337160"></textarea>
-<button type="submit">Отправить</button>
+<label>Имя *</label>
+<input type="text" name="entry.2005620554" required>
+
+<label>Телефон *</label>
+<input type="tel" name="entry.1045781291" required>
+
+<label>Возраст</label>
+<select name="age">
+  <option>6–9 лет</option>
+  <option>10–13 лет</option>
+  <option>14–17 лет</option>
+  <option>Взрослый</option>
+</select>
+
+<label>Направление</label>
+<select name="course">
+  <option>Английский</option>
+  <option>IELTS / SAT</option>
+  <option>Программирование</option>
+  <option>AI / NoCode</option>
+</select>
+
+<label>Комментарий</label>
+<textarea name="entry.839337160"></textarea>
+
+<button type="submit">Отправить заявку</button>
 <p id="msg" class="success"></p>
 </form>
 </section>
 
+
 <footer><p>© 2025 Invest in Kids | Все права защищены</p></footer>
 <a href="https://wa.me/77478980843" target="_blank" class="whatsapp-btn"><img src="img/whatsapp.jpg" alt="WhatsApp" class="icon"> Онлайн менеджер</a>
 
+<!-- JS -->
 <script>
-/* Форма Google */
+/* FORM */
 document.getElementById("contactForm").addEventListener("submit",e=>{
 e.preventDefault();
 const form=e.target;
@@ -314,7 +453,7 @@ fetch("https://docs.google.com/forms/d/e/1FAIpQLSeVjpbMMSrFRiBNe1zOit4duKUzWWgCQ
 .catch(()=>{document.getElementById("msg").innerText="❌ Ошибка, попробуйте снова."});
 });
 
-/* Фото-слайдер */
+/* SLIDER */
 document.addEventListener("DOMContentLoaded",function(){
 const slides=document.querySelectorAll("#invest-photos .slider img");
 let current=0;
@@ -325,10 +464,15 @@ current=(current+1)%slides.length;
 slides[current].classList.add("active");
 },7000);
 });
-</script>
-   
-    <script>
-// Scroll animation
+
+/* FAQ */
+document.querySelectorAll('.faq-q').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    btn.parentElement.classList.toggle('active');
+  });
+});
+
+/* REVEAL ON SCROLL */
 function revealOnScroll(){
     const items=document.querySelectorAll('.reveal');
     const winH=window.innerHeight;
@@ -342,5 +486,6 @@ function revealOnScroll(){
 window.addEventListener('scroll',revealOnScroll);
 revealOnScroll();
 </script>
+
 </body>
 </html>
