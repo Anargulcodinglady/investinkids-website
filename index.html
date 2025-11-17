@@ -307,16 +307,6 @@ footer{background:#065f46;color:#fff;text-align:center;padding:25px 10px;}
 <a href="https://wa.me/77478980843" target="_blank" class="whatsapp-btn"><img src="img/whatsapp.jpg" alt="WhatsApp" class="icon"> Онлайн менеджер</a>
 
 <script>
-/* Форма Google */
-document.getElementById("contactForm").addEventListener("submit",e=>{
-e.preventDefault();
-const form=e.target;
-fetch("https://docs.google.com/forms/d/e/1FAIpQLSeVjpbMMSrFRiBNe1zOit4duKUzWWgCQ75uMuqMnRL7R3d7oA/formResponse",
-{method:"POST",body:new FormData(form),mode:"no-cors"})
-.then(()=>{document.getElementById("msg").innerText="✅ Ваша заявка отправлена!";form.reset();})
-.catch(()=>{document.getElementById("msg").innerText="❌ Ошибка, попробуйте снова."});
-});
-
 /* Фото-слайдер */
 document.addEventListener("DOMContentLoaded",function(){
 const slides=document.querySelectorAll("#invest-photos .slider img");
