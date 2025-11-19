@@ -13,7 +13,16 @@
 html{scroll-behavior:smooth}
 body{margin:0;font-family:Inter,Arial,sans-serif;color:#222;background:#fff;overflow-x:hidden;}
 
-header{position:fixed;top:0;left:0;width:100%;background:#fff;box-shadow:0 2px 6px rgba(0,0,0,.1);z-index:1000;}
+header{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  background:rgba(255,255,255,0.75);
+  backdrop-filter:blur(12px);
+  box-shadow:0 2px 6px rgba(0,0,0,.1);
+  z-index:1000;
+}
 nav{display:flex;align-items:center;justify-content:space-between;padding:15px 5%;}
 nav ul{list-style:none;display:flex;gap:20px;margin:0;padding:0;}
 nav a{text-decoration:none;color:#065f46;font-weight:600;transition:.3s;}
@@ -126,7 +135,44 @@ footer{background:#065f46;color:#fff;text-align:center;padding:25px 10px;}
         text-align:center;
     }
     #home{height:auto;padding:120px 0 60px;}
+#invest-photos .slider img{
+  width:100% !important;
 }
+
+  .burger {
+  display:none;
+  font-size:30px;
+  cursor:pointer;
+  color:#065f46;
+}
+
+@media(max-width:850px){
+  nav ul{
+    display:none;
+    flex-direction:column;
+    background:#fff;
+    position:absolute;
+    top:60px;
+    left:0;
+    width:100%;
+    padding:20px 0;
+    box-shadow:0 4px 8px rgba(0,0,0,0.1);
+  }
+  nav ul.open {
+    display:flex;
+  }
+  .burger {
+    display:block;
+  }
+}
+  .stats{
+  margin-top:10px;
+  color:#fff;
+  font-size:1.1rem;
+  font-weight:600;
+}
+.promo-title { color:white; }
+
 </style>
 </head>
 
@@ -136,6 +182,7 @@ footer{background:#065f46;color:#fff;text-align:center;padding:25px 10px;}
 <a href="#home"><strong>Invest in Kids</strong></a>
 <ul>
 <li><a href="#home">Главная</a></li>
+  <div class="burger" onclick="toggleMenu()">☰</div>
 <li><a href="#about">О нас</a></li>
 <li><a href="#courses">Курсы</a></li>
 <li><a href="#invest-photos">Фото о нас</a></li>
@@ -150,11 +197,14 @@ footer{background:#065f46;color:#fff;text-align:center;padding:25px 10px;}
 <div class="hero-left">
 <h1>Создаём будущее вместе с детьми 🚀</h1>
 <p>Английский, программирование и технологии — легко, интересно и с любовью 💚</p>
+  <div class="stats">
+  ⭐ 450+ учеников • 🧑‍🏫 8 лет опыта • 🌍 Онлайн и офлайн
+</div>
 <a href="#courses" class="cta-btn">Посмотреть курсы</a>
 </div>
 <div class="hero-right">
 <div class="promo-box">
-<h3 style="color:white;">Попробуй первый урок бесплатно 🎁</h3>
+<h3 class="promo-title">Попробуй первый урок бесплатно 🎁</h3>
 <div class="promo-price"><span style="text-decoration:line-through;color:#e63946;font-size:1.4rem;">5000 ₸</span>
 <b style="color:#e63946;font-size:2rem;margin-left:6px;">БЕСПЛАТНО</b></div>
 <p style="color:white;">Познакомься с учителями, почувствуй атмосферу и начни путь к успеху уже сегодня!</p>
@@ -164,7 +214,6 @@ footer{background:#065f46;color:#fff;text-align:center;padding:25px 10px;}
 </div>
 </section>
 
-<section id="about">
     <section id="about" class="reveal">
 <div class="about">
 <img src="img/classroom.jpg" alt="Invest in Kids">
@@ -262,13 +311,13 @@ footer{background:#065f46;color:#fff;text-align:center;padding:25px 10px;}
 <h2>Invest in Kids в фотографиях 📸</h2>
 <p style="text-align:center;color:#555;">Мы учим, играем, создаём и вдохновляем — вот как проходит обучение в нашем центре!</p>
 <div class="slider">
-<img src="img/photo1.jpg" class="active" alt="Фото 1">
-<img src="img/photo2.jpg" alt="Фото 2">
-<img src="img/photo3.jpg" alt="Фото 3">
-<img src="img/photo4.jpg" alt="Фото 4">
-<img src="img/photo5.jpg" alt="Фото 5">
-  <img src="img/photo6.jpg" alt="Фото 6">
-  <img src="img/photo7.jpg" alt="Фото 7">
+<img loading="lazy" src="img/photo1.jpg" class="active" alt="Фото 1">
+<img loading="lazy" src="img/photo2.jpg" class="active" alt="Фото 2">
+<img loading="lazy" src="img/photo3.jpg" class="active" alt="Фото 3">
+<img loading="lazy" src="img/photo4.jpg" class="active" alt="Фото 4">
+><img loading="lazy" src="img/photo5.jpg" class="active" alt="Фото 5">
+ <img loading="lazy" src="img/photo6.jpg" class="active" alt="Фото 6">
+ <img loading="lazy" src="img/photo7.jpg" class="active" alt="Фото 7">
 </div>
 </section>
 
@@ -294,15 +343,22 @@ footer{background:#065f46;color:#fff;text-align:center;padding:25px 10px;}
 
    <form id="contactForm">
   <label>Имя</label>
-  <input type="text" name="entry.1357686441" required>
+ <input type="text" placeholder="Ваше имя" name="entry.1357686441" required>
 
   <label>Телефон</label>
-  <input type="tel" name="entry.580979079" required>
+ <input type="tel" placeholder="+7 ___ ___ ____" name="entry.580979079" required>
+
 
   <label>Комментарий</label>
   <textarea name="entry.1275669067"></textarea>
 
   <button type="submit">Отправить</button>
+     <a href="https://wa.me/77081486845?text=Здравствуйте!%20Хочу%20записаться%20на%20курс." 
+   target="_blank" 
+   class="cta-btn" 
+   style="display:block;text-align:center;margin:10px auto;">
+📲 Записаться через WhatsApp
+</a>
   <p id="msg" class="success"></p>
 </form>
 
@@ -357,6 +413,11 @@ document.getElementById("contactForm").addEventListener("submit", e => {
         document.getElementById("msg").innerText = "❌ Ошибка, попробуйте снова.";
     });
 });
+</script>
+  <script>
+function toggleMenu(){
+  document.querySelector("nav ul").classList.toggle("open");
+}
 </script>
 </body>
 </html>
